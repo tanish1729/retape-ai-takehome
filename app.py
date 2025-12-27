@@ -155,22 +155,22 @@ with st.sidebar:
     # Dynamic sliders based on strategy
     if strategy_mode in ["Combined (Recommended)", "Silence Only"]:
         st.subheader("Silence Settings")
-        silence_thresh = st.slider("Silence Threshold (sec)", 1.0, 5.0, 2.5, help="How long to wait after talking stops")
+        silence_thresh = st.slider("Silence Threshold (sec)", 1.0, 5.0, 1.5, help="How long to wait after talking stops")
         warmup_time = st.slider("Warmup / Safe Start (sec)", 0.0, 5.0, 2.0, help="Ignore silence during this start period")
     else:
         # Default values if hidden
-        silence_thresh = 2.5
+        silence_thresh = 1.5
         warmup_time = 2.0
 
     if strategy_mode in ["Combined (Recommended)", "Beep Only"]:
         st.subheader("Beep Settings")
-        target_freq = st.slider("Target Frequency (Hz)", 400, 2000, 1000)
+        target_freq = st.slider("Target Frequency (Hz)", 400, 2000, 800)
         tolerance = st.slider("Frequency Tolerance (+/- Hz)", 10, 300, 100)
-        min_dur = st.slider("Min Beep Duration (sec)", 0.05, 0.5, 0.1, step=0.05)
+        min_dur = st.slider("Min Beep Duration (sec)", 0.05, 0.5, 0.15, step=0.05)
     else:
-        target_freq = 1000
+        target_freq = 800
         tolerance = 100
-        min_dur = 0.1
+        min_dur = 0.15
 
     st.divider()
     
