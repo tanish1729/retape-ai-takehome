@@ -1,5 +1,1 @@
 matplotlib
-streamlit
-numpy
-scipy
-wave
