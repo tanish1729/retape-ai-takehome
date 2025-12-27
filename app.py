@@ -47,7 +47,7 @@ class SilenceStrategy(BaseStrategy):
     Tracks RMS energy. If energy stays below threshold for X seconds
     (after the warmup period), it triggers a drop.
     """
-    def __init__(self, warmup=2.0, silence_thresh=2.5, energy_floor=500):
+    def __init__(self, warmup=2.0, silence_thresh=1.5, energy_floor=500):
         self.warmup = warmup
         self.limit = silence_thresh
         self.floor = energy_floor
@@ -75,7 +75,7 @@ class BeepStrategy(BaseStrategy):
     Uses FFT to find the dominant frequency. If the loudest frequency
     is within the target range for a minimum duration, it triggers.
     """
-    def __init__(self, target_freq=1000, tolerance=100, min_dur=0.1, min_amp=2000):
+    def __init__(self, target_freq=800, tolerance=100, min_dur=0.15, min_amp=2000):
         self.freq_min = target_freq - tolerance
         self.freq_max = target_freq + tolerance
         self.min_dur = min_dur
